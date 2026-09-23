@@ -36,7 +36,7 @@ class Merchant(BaseModel):
     address: Address | None = None
     disable_feedback: bool | None = None
 
-    model_config = {"extra": "ignore"}
+    model_config = {"extra": "allow"}
 
 
 class Counterparty(BaseModel):
@@ -47,7 +47,7 @@ class Counterparty(BaseModel):
     sort_code: str | None = None
     user_id: str | None = None
 
-    model_config = {"extra": "ignore"}
+    model_config = {"extra": "allow"}
 
 
 class Transaction(BaseModel):
@@ -82,7 +82,7 @@ class Transaction(BaseModel):
     # Raw metadata dict (MCC, trip_id, etc)
     metadata: dict | None = None
 
-    model_config = {"extra": "ignore"}
+    model_config = {"extra": "allow"}
 
     @property
     def merchant_id(self) -> str | None:
@@ -107,7 +107,7 @@ class Account(BaseModel):
     closed: bool = False
     currency: str = "GBP"
 
-    model_config = {"extra": "ignore"}
+    model_config = {"extra": "allow"}
 
 
 class Balance(BaseModel):
@@ -118,7 +118,7 @@ class Balance(BaseModel):
     spend_today: int  # Spent today in minor units
     currency: str = "GBP"
 
-    model_config = {"extra": "ignore"}
+    model_config = {"extra": "allow"}
 
     @property
     def balance_pounds(self) -> float:
@@ -151,7 +151,7 @@ class Pot(BaseModel):
     locked: bool = False
     current_account_id: str | None = Field(None, alias="current_account_id")
 
-    model_config = {"extra": "ignore"}
+    model_config = {"extra": "allow"}
 
     @property
     def balance_pounds(self) -> float:
